@@ -46,7 +46,7 @@ function App() {
       <main className="flex-1 overflow-y-auto p-5">
         <FlashCard />
       </main>
-      <footer className="py-5 bg-gray-700 flex justify-between text-white p-5">
+      <footer className="py-5 bg-gray-700 flex justify-center text-white p-5">
         <a href="https://benhammond.tech">benhammond.tech</a>
       </footer>
     </div>
