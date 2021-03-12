@@ -23,7 +23,10 @@ To quiz yourself, simply visit the deployed site in any modern web browser:
 
 ## Contributing
 
-Pull requests and issues are encouraged!
+Pull requests and issues are encouraged! Both repos are public on GitHub:
+
+- [Frontend Repo](https://github.com/benhammondmusic/jr-dev-flashcards-client)
+- [Backend Repo](https://github.com/benhammondmusic/flashcards)
 
 ## License
 
