@@ -1,3 +1,5 @@
+import FlashCard from './components/FlashCard/FlashCard.jsx';
+
 function App() {
   // header
   // app title - credit
@@ -17,7 +19,9 @@ function App() {
         <h1>Jr Dev Flashcards</h1>
         <nav>Dropdown to select topic</nav>
       </header>
-      <main className="flex-1 overflow-y-auto p-5">flashcards</main>
+      <main className="flex-1 overflow-y-auto p-5">
+        <FlashCard />
+      </main>
       <footer className="py-5 bg-gray-700 flex justify-between text-white p-5">
         <a href="https://benhammond.tech">benhammond.tech</a>
       </footer>
