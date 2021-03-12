@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_SERVER = 'http://localhost:3001';
+const API_SERVER = 'https://jr-dev-flashcards.herokuapp.com'; // 'http://localhost:3001';
 
 class FlashCardActions {
   // get all FlashCard Topics
