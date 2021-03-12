@@ -1,19 +1,17 @@
-const TopicSelect = ({ topics, handleSubmit, handleChange }) => {
+const TopicSelect = ({ topics, currentTopic, handleTopicChange }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Topic:
-        <select className="text-gray-700 mx-1" value={topics[0]} onChange={handleChange}>
-          {topics.map((topic) => {
-            return (
-              <option key={topic} value={topic}>
-                {topic}
-              </option>
-            );
-          })}
-        </select>
-      </label>
-    </form>
+    <label>
+      Topic:
+      <select className="text-gray-700 mx-1" value={currentTopic} onChange={handleTopicChange}>
+        {topics.map((topic) => {
+          return (
+            <option key={topic} value={topic}>
+              {topic}
+            </option>
+          );
+        })}
+      </select>
+    </label>
   );
 };
 

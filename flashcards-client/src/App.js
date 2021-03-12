@@ -14,6 +14,7 @@ function App() {
       // console.log(response.data.topics);
       setAvailableTopics(response.data.topics);
     } catch (error) {
+      console.log('in update topics');
       return console.log(error);
     }
   };
@@ -21,24 +22,36 @@ function App() {
   const updateDeck = async (topicStr) => {
     try {
       const response = await FlashCardActions.getTopicCards(topicStr);
-      // console.log(response.data);
-      setCurrentDeck(response.data);
+      console.log(response.data);
+      // setCurrentDeck(response.data);
     } catch (error) {
+      console.log('in update deck');
       return console.log(error);
     }
   };
+
+  const handleTopicChange = (e) => {
+    console.log('topic change', e.target.value);
+    setCurrentTopic(e.target.value);
+  };
+
+  // SIDE EFFECTS
 
   // ONE PAGE LOAD: call API and get avail topics, then set deck from API call to first topic
   useEffect(() => {
     const asyncLoadTopicsAndDeck = async () => {
       await updateTopics();
-      // console.log(availableTopics[0], 'first topic at page load');
+      console.log(availableTopics[0], 'first topic at page load');
       updateDeck(availableTopics[0]);
     };
-
     // use fn to allow async for proper API call loading
     asyncLoadTopicsAndDeck();
   }, []);
+
+  // WHEN CURRENT TOPIC CHANGES, UPDATE CURRENT DECK
+  useEffect(() => {
+    updateDeck(currentTopic);
+  }, [currentTopic]);
 
   // display all cards from topic, with question and choices
   // each card can be clicked to flip and replace choices with answer
@@ -49,7 +62,7 @@ function App() {
       <header className="py-5 bg-gray-700 text-white flex justify-between p-5">
         <h1>Jr Dev Flashcards</h1>
         <nav>
-          <TopicSelect topics={availableTopics} />
+          <TopicSelect topics={availableTopics} currentTopic={currentTopic} handleTopicChange={handleTopicChange} />
         </nav>
       </header>
       <main className="flex-1 overflow-y-auto p-5">
@@ -57,7 +70,7 @@ function App() {
           return <FlashCard card={card} />;
         })}
       </main>
-      <footer className="py-5 bg-gray-700 flex justify-center text-white p-5">
+      <footer className="py-1 bg-gray-700 flex justify-center text-white p-5">
         <a href="https://benhammond.tech">benhammond.tech</a>
       </footer>
     </div>
