@@ -21,9 +21,8 @@ function App() {
 
   const updateDeck = async (topicStr) => {
     try {
-      console.log('topic string in update deck', topicStr);
       const response = await FlashCardActions.getTopicCards(topicStr);
-      console.log(response.data);
+      // console.log(response.data);
       setCurrentDeck(response.data);
     } catch (error) {
       console.log('error in update deck');
@@ -32,7 +31,6 @@ function App() {
   };
 
   const handleTopicChange = (e) => {
-    console.log('topic change', e.target.value);
     setCurrentTopic(e.target.value);
   };
 
@@ -42,16 +40,19 @@ function App() {
   useEffect(() => {
     const asyncLoadTopicsAndDeck = async () => {
       await updateTopics();
-      console.log(availableTopics[0], 'first topic at page load');
-      updateDeck(availableTopics[0]);
     };
     // use fn to allow async for proper API call loading
     asyncLoadTopicsAndDeck();
   }, []);
 
+  // WHEN TOPICS CHANGE, SET CURRENT TOPIC TO FIRST (SHOULD ONLY HAPPEN ON PAGE LOAD)
+  useEffect(() => {
+    setCurrentTopic(availableTopics[0]);
+  }, [availableTopics]);
+
   // WHEN CURRENT TOPIC CHANGES, UPDATE CURRENT DECK
   useEffect(() => {
-    updateDeck(currentTopic);
+    if (currentTopic) updateDeck(currentTopic);
   }, [currentTopic]);
 
   // display all cards from topic, with question and choices
