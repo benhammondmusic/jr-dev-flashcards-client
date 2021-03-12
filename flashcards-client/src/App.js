@@ -41,13 +41,13 @@ function App() {
     const asyncLoadTopicsAndDeck = async () => {
       await updateTopics();
     };
-    // use fn to allow async for proper API call loading
+    // use fn to allow async for proper async API call loading
     asyncLoadTopicsAndDeck();
   }, []);
 
   // WHEN TOPICS CHANGE, SET CURRENT TOPIC TO FIRST (SHOULD ONLY HAPPEN ON PAGE LOAD)
   useEffect(() => {
-    setCurrentTopic(availableTopics[0]);
+    if (availableTopics) setCurrentTopic(availableTopics[0]);
   }, [availableTopics]);
 
   // WHEN CURRENT TOPIC CHANGES, UPDATE CURRENT DECK
