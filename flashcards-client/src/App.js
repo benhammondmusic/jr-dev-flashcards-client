@@ -14,18 +14,19 @@ function App() {
       // console.log(response.data.topics);
       setAvailableTopics(response.data.topics);
     } catch (error) {
-      console.log('in update topics');
+      console.log('error in update topics');
       return console.log(error);
     }
   };
 
   const updateDeck = async (topicStr) => {
     try {
+      console.log('topic string in update deck', topicStr);
       const response = await FlashCardActions.getTopicCards(topicStr);
       console.log(response.data);
-      // setCurrentDeck(response.data);
+      setCurrentDeck(response.data);
     } catch (error) {
-      console.log('in update deck');
+      console.log('error in update deck');
       return console.log(error);
     }
   };
@@ -66,8 +67,8 @@ function App() {
         </nav>
       </header>
       <main className="flex-1 overflow-y-auto p-5">
-        {currentDeck.map((card) => {
-          return <FlashCard card={card} />;
+        {currentDeck.map((card, idx) => {
+          return <FlashCard key={idx} card={card} />;
         })}
       </main>
       <footer className="py-1 bg-gray-700 flex justify-center text-white p-5">
