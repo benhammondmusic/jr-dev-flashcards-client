@@ -55,8 +55,6 @@ function App() {
     if (currentTopic) updateDeck(currentTopic);
   }, [currentTopic]);
 
-  // display all cards from topic, with question and choices
-  // each card can be clicked to flip and replace choices with answer
   // would be nice to add an (x) which records idx to an ignoredCards array in local storage
 
   return (
