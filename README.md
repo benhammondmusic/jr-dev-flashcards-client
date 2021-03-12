@@ -31,3 +31,8 @@ Pull requests and issues are encouraged! Both repos are public on GitHub:
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## Deployments
+
+- [Frontend Client](https://jr-dev-flashcards.netlify.app/) - Use this to view the flashcards app.
+- [Backend - API](http://jr-dev-flashcards.herokuapp.com/api)

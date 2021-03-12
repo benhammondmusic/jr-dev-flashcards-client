@@ -58,9 +58,15 @@ function App() {
   // would be nice to add an (x) which records idx to an ignoredCards array in local storage
 
   return (
-    <div className="App flex flex-col h-screen">
-      <header className="py-5 bg-gray-700 text-white flex justify-between p-5">
-        <h1>Jr Dev Flashcards</h1>
+    <div className="App flex flex-col h-screen ">
+      <header className="py-5 bg-gray-700 text-white flex justify-between p-5 align-middle">
+        <div className="flex flex-col">
+          <h1 className="text-lg">Jr Dev Flashcards</h1>
+          <a href="https://benhammond.tech" className="text-xs lg:text-sm">
+            by benhammond.tech
+          </a>
+        </div>
+
         <nav>
           <TopicSelect topics={availableTopics} currentTopic={currentTopic} handleTopicChange={handleTopicChange} />
         </nav>
@@ -70,9 +76,6 @@ function App() {
           return <FlashCard key={idx} card={card} />;
         })}
       </main>
-      <footer className="py-1 bg-gray-700 flex justify-center text-white p-5">
-        <a href="https://benhammond.tech">benhammond.tech</a>
-      </footer>
     </div>
   );
 }
