@@ -5,7 +5,7 @@ import FlashCardActions from './Models/FlashCardActions';
 
 function App() {
   const [availableTopics, setAvailableTopics] = useState([]);
-  const [currentTopic, setCurrentTopic] = useState(0);
+  const [currentTopic, setCurrentTopic] = useState();
   const [currentDeck, setCurrentDeck] = useState([]);
 
   const updateTopics = async () => {
