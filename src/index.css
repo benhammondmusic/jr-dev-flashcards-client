@@ -2,25 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* #f0a4a4 calc(3rem), #f0a4a4 calc(3rem + 2px), transparent 1px) */
-
-/* .lined {
-  background-image: linear-gradient(180deg, white 3rem, repeating-linear-gradient(0deg, transparent, transparent 1.5rem, #ddd 1px, #ddd calc(1.5rem + 1px));
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
-   height: 14rem; 
-  width: 400px; 
-
-  margin: auto;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-} */
-
 .lined {
+  margin-top: 2rem;
   font: normal 12px/1.5 'Lucida Grande', arial, sans-serif;
   width: 50%;
   height: 80%;
-  margin: 0 auto;
   padding: 6px 5px 4px 42px;
   position: relative;
   color: #444;
