@@ -71,7 +71,7 @@ function App() {
           <TopicSelect topics={availableTopics} currentTopic={currentTopic} handleTopicChange={handleTopicChange} />
         </nav>
       </header>
-      <main className="flex-1 overflow-y-auto p-5">
+      <main className="flex-1 overflow-y-auto p-5 align-center">
         {currentDeck.map((card, idx) => {
           return <FlashCard key={idx} card={card} />;
         })}

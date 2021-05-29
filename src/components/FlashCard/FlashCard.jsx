@@ -11,16 +11,16 @@ const FlashCard = ({ card, idx }) => {
   return (
     <ReactCardFlip isFlipped={isFlipped}>
       {/* CARD FRONT  */}
-      <div key="front" className="lined shadow-lg p-3 mt-30 lg:mx-60" onClick={flipCard}>
+      <div key="front" className="lined shadow-lg p-3 mt-30 " onClick={flipCard}>
         <small className="bg-gray-700 text-white">{card.topic}</small>
         <pre className="break-words whitespace-pre-wrap font-bold">{card.question} ?</pre>
         <pre className="break-words whitespace-pre-wrap">{card.choices}</pre>
       </div>
       {/* CARD BACK WITH ANSWER  */}
-      <div key="back" className="lined shadow-2xl rounded p-3 mt-70 lg:mx-60" onClick={flipCard}>
+      <div key="back" className="lined shadow-2xl rounded p-3 mt-70 " onClick={flipCard}>
         <small className="bg-gray-700 text-white">{card.topic}</small>
-        <pre className="break-words whitespace-pre-wrap font-bold text-blue-200">{card.question} ?</pre>
-        <pre className="break-words whitespace-pre-wrap ">{card.answer}</pre>
+        <pre className="break-words whitespace-pre-wrap font-bold text-black bg-blue-200">{card.question} ?</pre>
+        <pre className="break-words whitespace-pre-wrap">{card.answer}</pre>
       </div>
     </ReactCardFlip>
   );
