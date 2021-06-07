@@ -7,13 +7,16 @@ function App() {
   const [availableTopics, setAvailableTopics] = useState([]);
   const [currentTopic, setCurrentTopic] = useState();
   const [currentDeck, setCurrentDeck] = useState([]);
+  const [userMessage, setUserMessage] = useState('');
 
   const updateTopics = async () => {
     try {
       const response = await FlashCardActions.getTopics();
       setAvailableTopics(response.data.topics);
     } catch (error) {
-      console.log('error in update topics');
+      let errorMessage = `Error updating topics. ${error}`;
+      console.log(errorMessage);
+      setUserMessage(errorMessage);
       return console.log(error);
     }
   };
@@ -70,7 +73,15 @@ function App() {
         <nav>{availableTopics.length === 0 ? '' : <TopicSelect topics={availableTopics} currentTopic={currentTopic} handleTopicChange={handleTopicChange} />}</nav>
       </header>
       <main className="flex-1 overflow-y-auto p-5 justify-center">
-        {currentTopic === undefined ? <em>Loading on a free server, please wait up to 30 seconds...</em> : ''}
+        {currentTopic === undefined ? (
+          <em>
+            Loading on a free server, please wait up to 30 seconds...
+            <br />
+            {userMessage}
+          </em>
+        ) : (
+          ''
+        )}
 
         {currentDeck.map((card, idx) => {
           return <FlashCard key={idx} card={card} />;
