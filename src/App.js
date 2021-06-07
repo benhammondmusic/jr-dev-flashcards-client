@@ -67,11 +67,11 @@ function App() {
           </a>
         </div>
 
-        <nav>
-          <TopicSelect topics={availableTopics} currentTopic={currentTopic} handleTopicChange={handleTopicChange} />
-        </nav>
+        <nav>{availableTopics.length === 0 ? '' : <TopicSelect topics={availableTopics} currentTopic={currentTopic} handleTopicChange={handleTopicChange} />}</nav>
       </header>
       <main className="flex-1 overflow-y-auto p-5 justify-center">
+        {currentTopic === undefined ? <em>Loading on a free server, please wait up to 30 seconds...</em> : ''}
+
         {currentDeck.map((card, idx) => {
           return <FlashCard key={idx} card={card} />;
         })}
