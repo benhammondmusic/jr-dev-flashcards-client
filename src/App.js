@@ -11,7 +11,6 @@ function App() {
   const updateTopics = async () => {
     try {
       const response = await FlashCardActions.getTopics();
-      // console.log(response.data.topics);
       setAvailableTopics(response.data.topics);
     } catch (error) {
       console.log('error in update topics');
@@ -22,7 +21,6 @@ function App() {
   const updateDeck = async (topicStr) => {
     try {
       const response = await FlashCardActions.getTopicCards(topicStr);
-      // console.log(response.data);
       setCurrentDeck(response.data);
     } catch (error) {
       console.log('error in update deck');
@@ -49,6 +47,8 @@ function App() {
   useEffect(() => {
     if (availableTopics) setCurrentTopic(availableTopics[0]);
   }, [availableTopics]);
+
+  //
 
   // WHEN CURRENT TOPIC CHANGES, UPDATE CURRENT DECK
   useEffect(() => {
