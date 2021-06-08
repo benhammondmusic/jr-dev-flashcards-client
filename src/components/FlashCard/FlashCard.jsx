@@ -25,7 +25,7 @@ const FlashCard = ({ card, idx, startFlipped }) => {
         <pre className="break-words whitespace-pre-wrap">{card.choices}</pre>
       </div>
       {/* CARD BACK WITH ANSWER  */}
-      <div key="back" className="lined shadow-2xl rounded p-3 mt-70 " onClick={flipCard}>
+      <div key="back" className="lined shadow-2xl rounded p-3 mt-70 bg-blue-200" onClick={flipCard}>
         <small className="bg-gray-700 text-white p-1">
           {card.topic} {card.number} {startFlipped}
         </small>
