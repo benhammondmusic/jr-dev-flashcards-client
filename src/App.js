@@ -24,7 +24,7 @@ function App() {
   const updateDeck = async (topicStr) => {
     try {
       const response = await FlashCardActions.getTopicCards(topicStr);
-      setCurrentDeck(response.data);
+      setCurrentDeck([...response.data]);
     } catch (error) {
       console.log('error in update deck');
       return console.log(error);
@@ -58,6 +58,10 @@ function App() {
     if (currentTopic) updateDeck(currentTopic);
   }, [currentTopic]);
 
+  useEffect(() => {
+    console.log('new deck');
+  }, [currentDeck]);
+
   // would be nice to add an (x) which records idx to an ignoredCards array in local storage
 
   return (
@@ -75,7 +79,7 @@ function App() {
       <main className="flex-1 overflow-y-auto p-5 justify-center">
         {currentTopic === undefined ? (
           <em>
-            Loading on a free server, please wait up to 30 seconds...
+            Loading from a free server, please wait up to 30 seconds...
             <br />
             {userMessage}
           </em>
@@ -84,7 +88,7 @@ function App() {
         )}
 
         {currentDeck.map((card, idx) => {
-          return <FlashCard key={idx} card={card} />;
+          return <FlashCard key={`${card.topic}${card.number}`} card={card} startFlipped={localStorage.getItem(`${card.topic}${card.number}`)} />;
         })}
       </main>
     </div>
